@@ -17,3 +17,33 @@ classes.  All generated classes have been committed to the project, though
 there is a `generateStubs.sh` script present that can be used to regenerate
 these files.  Note that *you must use EAP 5* to generate these files because
 `wstools.sh` is not packaged in EAP6.
+
+To deploy the project (after the generated files are in place), simply run `mvn
+jboss-as:deploy` or copy the .war to `JBOSS_HOME/standalone/deployments`.  The
+service can be tested by executing `request.sh`, which is simply a `curl`
+command to send the SOAP XML found in `request.xml`.
+
+Upon deployment, you should see something like this in your logs:
+
+```
+15:33:53,029 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015876: Starting deployment of "jaxrpc-example.war" (runtime-name: "jaxrpc-example.war")
+15:33:53,379 INFO  [org.jboss.ws.native] (MSC service thread 1-8) JBWS025010: WSDL published to: file:/home/remote/klape/jboss/product-distributions/standalone/data/wsdl/jaxrpc-example.war/HelloWorld.wsdl
+15:33:53,389 INFO  [org.jboss.as.webservices] (MSC service thread 1-5) JBAS015539: Starting service jboss.ws.port-component-link
+15:33:53,400 INFO  [org.jboss.as.webservices] (MSC service thread 1-4) JBAS015539: Starting service jboss.ws.endpoint."jaxrpc-example.war".HelloEndpoint
+15:33:53,431 INFO  [org.jboss.web] (ServerService Thread Pool -- 52) JBAS018210: Register web context: /jaxrpc-example
+15:33:53,549 INFO  [org.jboss.as.server] (management-handler-thread - 2) JBAS018559: Deployed "jaxrpc-example.war" (runtime-name : "jaxrpc-example.war")
+```
+
+And you should see something like this as an XML response (after running it through `xmllint`):
+
+```
+<?xml version="1.0"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Header/>
+  <env:Body>
+    <ns1:sayHelloResponse xmlns:ns1="http://jaxrpc.gss.redhat.com/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <result>Hello, Kyle!</result>
+    </ns1:sayHelloResponse>
+  </env:Body>
+</env:Envelope>
+```
