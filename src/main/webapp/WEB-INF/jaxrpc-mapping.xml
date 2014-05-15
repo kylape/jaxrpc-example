@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?><java-wsdl-mapping version='1.1' xmlns='http://java.sun.com/xml/ns/j2ee' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd'>
+ <package-mapping>
+  <package-type>com.redhat.gss.jaxrpc</package-type>
+  <namespaceURI>http://jaxrpc.gss.redhat.com/types</namespaceURI>
+ </package-mapping>
+ <java-xml-type-mapping>
+  <java-type>com.redhat.gss.jaxrpc.HelloWorld_sayHello_RequestStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://jaxrpc.gss.redhat.com/types'>typeNS:sayHello</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>string_1</java-variable-name>
+   <xml-element-name>String_1</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <java-xml-type-mapping>
+  <java-type>com.redhat.gss.jaxrpc.HelloWorld_sayHello_ResponseStruct</java-type>
+  <root-type-qname xmlns:typeNS='http://jaxrpc.gss.redhat.com/types'>typeNS:sayHelloResponse</root-type-qname>
+  <qname-scope>complexType</qname-scope>
+  <variable-mapping>
+   <java-variable-name>result</java-variable-name>
+   <xml-element-name>result</xml-element-name>
+  </variable-mapping>
+ </java-xml-type-mapping>
+ <service-interface-mapping>
+  <service-interface>com.redhat.gss.jaxrpc.HelloWorld</service-interface>
+  <wsdl-service-name xmlns:serviceNS='http://jaxrpc.gss.redhat.com/'>serviceNS:HelloWorld</wsdl-service-name>
+  <port-mapping>
+   <port-name>HelloWorldPort</port-name>
+   <java-port-name>HelloWorldPort</java-port-name>
+  </port-mapping>
+ </service-interface-mapping>
+ <service-endpoint-interface-mapping>
+  <service-endpoint-interface>com.redhat.gss.jaxrpc.HelloWorld</service-endpoint-interface>
+  <wsdl-port-type xmlns:portTypeNS='http://jaxrpc.gss.redhat.com/'>portTypeNS:HelloWorld</wsdl-port-type>
+  <wsdl-binding xmlns:bindingNS='http://jaxrpc.gss.redhat.com/'>bindingNS:HelloWorldBinding</wsdl-binding>
+  <service-endpoint-method-mapping>
+   <java-method-name>sayHello</java-method-name>
+   <wsdl-operation>sayHello</wsdl-operation>
+   <wrapped-element/>
+   <method-param-parts-mapping>
+    <param-position>0</param-position>
+    <param-type>java.lang.String</param-type>
+    <wsdl-message-mapping>
+     <wsdl-message xmlns:wsdlMsgNS='http://jaxrpc.gss.redhat.com/'>wsdlMsgNS:HelloWorld_sayHello</wsdl-message>
+     <wsdl-message-part-name>String_1</wsdl-message-part-name>
+     <parameter-mode>IN</parameter-mode>
+    </wsdl-message-mapping>
+   </method-param-parts-mapping>
+   <wsdl-return-value-mapping>
+    <method-return-value>java.lang.String</method-return-value>
+    <wsdl-message xmlns:wsdlMsgNS='http://jaxrpc.gss.redhat.com/'>wsdlMsgNS:HelloWorld_sayHelloResponse</wsdl-message>
+    <wsdl-message-part-name>result</wsdl-message-part-name>
+   </wsdl-return-value-mapping>
+  </service-endpoint-method-mapping>
+ </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

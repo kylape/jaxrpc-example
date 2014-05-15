@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name='HelloWorld' targetNamespace='http://jaxrpc.gss.redhat.com/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:ns1='http://jaxrpc.gss.redhat.com/types' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://jaxrpc.gss.redhat.com/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <schema targetNamespace='http://jaxrpc.gss.redhat.com/types' xmlns='http://www.w3.org/2001/XMLSchema' xmlns:soap11-enc='http://schemas.xmlsoap.org/soap/encoding/' xmlns:tns='http://jaxrpc.gss.redhat.com/types' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <complexType name='sayHello'>
+    <sequence>
+     <element name='String_1' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <complexType name='sayHelloResponse'>
+    <sequence>
+     <element name='result' nillable='true' type='string'/>
+    </sequence>
+   </complexType>
+   <element name='sayHello' type='tns:sayHello'/>
+   <element name='sayHelloResponse' type='tns:sayHelloResponse'/>
+  </schema>
+ </types>
+ <message name='HelloWorld_sayHello' xmlns='http://schemas.xmlsoap.org/wsdl/'>
+  <part element='ns1:sayHello' name='sayHello'/>
+ </message>
+ <message name='HelloWorld_sayHelloResponse'>
+  <part element='ns1:sayHelloResponse' name='sayHelloResponse'/>
+ </message>
+ <portType name='HelloWorld'>
+  <operation name='sayHello' parameterOrder='sayHello'>
+   <input message='tns:HelloWorld_sayHello'/>
+   <output message='tns:HelloWorld_sayHelloResponse'/>
+  </operation>
+ </portType>
+ <binding name='HelloWorldBinding' type='tns:HelloWorld'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='sayHello'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='HelloWorld'>
+  <port binding='tns:HelloWorldBinding' name='HelloWorldPort'>
+   <soap:address location='REPLACE_WITH_ACTUAL_URL'/>
+  </port>
+ </service>
+</definitions>

@@ -1,0 +1,8 @@
+<configuration xmlns="http://www.jboss.org/jbossws-tools">
+  <java-wsdl>  
+    <service name="HelloWorld" style="document" endpoint="com.redhat.gss.jaxrpc.HelloWorld" />  
+    <namespaces target-namespace="http://jaxrpc.gss.redhat.com/" type-namespace="http://jaxrpc.gss.redhat.com/types"/>  
+    <mapping file="jaxrpc-mapping.xml"/>  
+    <webservices servlet-link="HelloEndpoint"/>  
+  </java-wsdl>  
+</configuration>  
