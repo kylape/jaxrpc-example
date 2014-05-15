@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+  <env:Header/>
+  <env:Body>
+    <ns1:sayHello xmlns:ns1="http://jaxrpc.gss.redhat.com/types">
+      <String_1>Kyle</String_1>
+    </ns1:sayHello>
+  </env:Body>
+</env:Envelope>
