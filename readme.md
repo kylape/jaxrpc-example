@@ -1,5 +1,7 @@
 ##JAX-RPC Example for JBossWS
 
+###<font color="red">JAX-RPC is STRONGLY not recommended for new projects.  Please use JAX-WS instead.</font>
+
 Project is based on JBossWS community documentation:
 
 <https://community.jboss.org/wiki/JBossWS-JAX-RPCUserGuide#jive_content_id_Document_Style_Endpoints>
